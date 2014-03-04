@@ -1,6 +1,5 @@
 imports:
     - { resource: parameters.yml }
-    - { resource: security.yml }
 
 framework:
     #esi:             ~
@@ -64,12 +63,6 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
-
-#FOS
-fos_user:
-    db_driver: orm
-    firewall_name: main
-    user_class: NFQ\Akademija\WallBundle\Entity\User
 
 stof_doctrine_extensions:
     default_locale: en_US
