@@ -18,11 +18,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             #Third parties bundles
-            new FOS\UserBundle\FOSUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-
-            #NFQ bundles
-            new NFQ\Akademija\WallBundle\NFQAkademijaWallBundle(),
+            new Nfq\CarsBundle\NfqCarsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

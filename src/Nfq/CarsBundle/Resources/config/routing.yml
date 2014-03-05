@@ -1,0 +1,9 @@
+nfq_cars_homepage:
+    pattern:  /say-hello/{name}
+    defaults: { _controller: NfqCarsBundle:Default:index }
+
+nfq_cars_suma:
+    pattern: /suma/{a}/{b}
+    defaults: { _controller: NfqCarsBundle:Default:suma }
+
+

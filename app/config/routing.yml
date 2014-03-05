@@ -1,14 +1,12 @@
-nfq_akademija_wall:
-    resource: "@NFQAkademijaWallBundle/Resources/config/routing.yml"
+nfq_cars:
+    resource: "@NfqCarsBundle/Resources/config/routing.yml"
     prefix:   /
 
-fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+NfqCarsBundle_vendor:
+    resource: "@NfqCarsBundle/Resources/config/routing/vendor.yml"
+    prefix:   /vendor
 
-fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
+NfqCarsBundle_car:
+    resource: "@NfqCarsBundle/Resources/config/routing/car.yml"
+    prefix:   /car
 
-fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
