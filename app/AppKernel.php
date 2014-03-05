@@ -19,6 +19,7 @@ class AppKernel extends Kernel
 
             #Third parties bundles
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Nfq\CarsBundle\NfqCarsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

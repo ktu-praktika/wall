@@ -1,1 +1,12 @@
+nfq_cars:
+    resource: "@NfqCarsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+NfqCarsBundle_vendor:
+    resource: "@NfqCarsBundle/Resources/config/routing/vendor.yml"
+    prefix:   /vendor
+
+NfqCarsBundle_car:
+    resource: "@NfqCarsBundle/Resources/config/routing/car.yml"
+    prefix:   /car
 
