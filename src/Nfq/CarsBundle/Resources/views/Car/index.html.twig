@@ -1,6 +1,14 @@
 {% extends '::base.html.twig' %}
 
-{% block body -%}
+{% block page_sub_header %}
+    cars list
+{% endblock %}
+
+{% block title %}
+    {{ parent() }} - cars list
+{% endblock %}
+
+{% block content -%}
     <h1>Car list</h1>
 
     <table class="records_list">

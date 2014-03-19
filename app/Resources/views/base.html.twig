@@ -2,12 +2,80 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Cars project{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block body %}
+            <div class="container">
+                <div class="page-header">
+                    <h1>
+                        {% block page_header %}Cars project{% endblock %}
+                        <small>{% block page_sub_header %}super cool project{% endblock %}</small>
+                    </h1>
+                </div>
+                {% block nav %}
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#">Cars</a>
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li {% if app.request.attributes.get('_route') == 'car' %}class="active"{% endif %}>
+                                        <a href="{{ path('car') }}">Car</a>
+                                    </li>
+                                    <li {% if app.request.attributes.get('_route') == 'car_new' %}class="active"{% endif %}>
+                                        <a href="{{ path('car_new') }}">Link</a>
+                                    </li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                {% endblock %}
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 hidden-xs">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <a href="#">
+                                    <span class="badge pull-right">42</span>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="#">
+                                    <span class="badge pull-right">10</span>
+                                    Cars
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="badge pull-right">15</span>
+                                    New
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8 col-sm-6">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('js/all.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
