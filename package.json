@@ -4,7 +4,7 @@
     "description": "Tryout for ktu",
     "repository": {
         "type": "git",
-        "url": "https://github.com/nfq-extremes/fox-standard.git"
+        "url": "https://github.com/ktu-praktika/wall.git"
     },
     "dependencies": {
         "gulp": "~3.5.6",
