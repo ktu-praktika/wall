@@ -3,15 +3,44 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}
-        <script src="js/jquery-ui/js/jquery-1.9.1.js"></script>
-        <script src="js/jquery-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="js/jquery.nfq.likeButton.js"></script>
+        {% block body %}
+            <div class="container">
+                {% block header %}
+                    <div class="page-header">
+                        <h1>
+                            {% block page_title %}{{ "Cars project" | trans }}{% endblock %}
+                            <small>{% block page_subtitle_title %}{{ "Super cool project" | trans }}{% endblock %} </small>
+                        </h1>
+                    </div>
+                {% endblock %}
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        {% block sidebar %}
+                            <div class="list-group">
+                                <a href="{{ path('vendor_new') }}" class="list-group-item{% if app.request.attributes.get('_route') == 'vendor_new' %} active{% endif %}">
+                                    New Vendor page
+                                </a>
+                                <a href="{{ path('vendor') }}" class="list-group-item{% if app.request.attributes.get('_route') == 'vendor' %} active{% endif %}">
+                                    Vendor list
+                                </a>
+                                <a href="#" class="list-group-item">Morbi leo risus</a>
+                                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                                <a href="#" class="list-group-item">Vestibulum at eros</a>
+                            </div>
+                        {% endblock %}
+                    </div>
+                    <div class="col-lg-8 col-md-6">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
         {% endblock %}
+        {% block javascripts %}{% endblock %}
     </body>
 </html>

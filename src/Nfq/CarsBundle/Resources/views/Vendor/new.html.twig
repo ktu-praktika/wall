@@ -1,6 +1,12 @@
 {% extends '::base.html.twig' %}
 
-{% block body -%}
+
+{% block page_title %}
+    {{ parent() }} -
+    {{ "New vendor page" | trans }}
+{% endblock %}
+
+{% block content -%}
     <h1>Vendor creation</h1>
 
     {{ form(form) }}

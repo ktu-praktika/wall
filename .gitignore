@@ -8,6 +8,10 @@ vendor/*
 */cache/*
 web/uploads/*
 web/bundles/*
+app/Resources/lib/*
+bower_components/*
+node_modules/*
+web/css/*
 
 # Configuration files
 app/config/parameters.ini
