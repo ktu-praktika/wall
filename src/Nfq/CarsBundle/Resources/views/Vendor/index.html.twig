@@ -1,45 +1,58 @@
 {% extends '::base.html.twig' %}
 
 {% block content -%}
-    <h1>Vendor list</h1>
+    <div ng-controller="vendor">
+        <h1>Vendor list</h1>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Founded</th>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('vendor_show', { 'id': entity.id }) }}">{{ entity.title }}</a></td>
-                <td>{{ entity.description }}</td>
-                <td>{% if entity.founded %}{{ entity.founded|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.id }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('vendor_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('vendor_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('vendor_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+
+        <div class="panel panel-success" ng-if="vendor">
+            <div class="panel-heading">
+                <h3 class="panel-title"> {{ "{{ vendor.title }}" }}</h3>
+            </div>
+            <div class="panel-body">
+                {{ "{{ vendor.description }}" }}
+            </div>
+        </div>
+
+        <table class="records_list">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Founded</th>
+                    <th>Id</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('vendor_show', { 'id': entity.id }) }}">{{ entity.title }}</a></td>
+                    <td>{{ entity.description }}</td>
+                    <td>{% if entity.founded %}{{ entity.founded|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ entity.id }}</td>
+                    <td>
+                    <ul>
+                        <li>
+                            <a href="#" ng-click="show('{{ path('vendor_show_js', { 'id': entity.id }) }}')">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('vendor_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+            <ul>
+            <li>
+                <a href="{{ path('vendor_new') }}">
+                    Create a new entry
+                </a>
+            </li>
+        </ul>
+    </div>
     {% endblock %}

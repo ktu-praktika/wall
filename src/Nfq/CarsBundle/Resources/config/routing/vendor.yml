@@ -6,6 +6,10 @@ vendor_show:
     pattern:  /{id}/show
     defaults: { _controller: "NfqCarsBundle:Vendor:show" }
 
+vendor_show_js:
+    pattern:  /{id}/show/js
+    defaults: { _controller: "NfqCarsBundle:Vendor:showJs" }
+
 vendor_new:
     pattern:  /new
     defaults: { _controller: "NfqCarsBundle:Vendor:new" }

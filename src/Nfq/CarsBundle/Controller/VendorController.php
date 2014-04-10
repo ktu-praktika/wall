@@ -2,6 +2,7 @@
 
 namespace Nfq\CarsBundle\Controller;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -106,6 +107,29 @@ class VendorController extends Controller
         return $this->render('NfqCarsBundle:Vendor:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),        ));
+    }
+
+    /**
+     * Finds and displays a Vendor entity.
+     *
+     */
+    public function showJsAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        /** @var Vendor $entity */
+        $entity = $em->getRepository('NfqCarsBundle:Vendor')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Vendor entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return new JsonResponse([
+            'title' => $entity->getTitle(),
+            'description' => $entity->getDescription()
+        ]);
     }
 
     /**
